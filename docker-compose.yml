@@ -16,7 +16,15 @@ services:
     volumes:
       - ./src:/var/www/
 
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog-attendance
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
   mysql:
+    platform: linux/amd64
     image: mysql:8.0.26
     environment:
       MYSQL_ROOT_PASSWORD: root
