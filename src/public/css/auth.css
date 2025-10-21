@@ -1,0 +1,45 @@
+.main {
+    width: 40%;
+    margin: 5% auto 0 auto;
+    text-align: center;
+}
+
+.main__title {
+    font-weight: bolder;
+}
+
+.main__form {
+    margin-top: 5%;
+    width: 100%;
+}
+
+.main__form--item {
+    text-align: left;
+    font-weight: bold;
+}
+
+.form__input {
+    width: 100%;
+    height: 30px;
+}
+
+.main__button {
+    margin-top: 15%;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+}
+
+.main__link {
+    margin: 5% 0;
+}
+
+.main__link--login {
+    text-decoration: none;
+    font-size: small;
+    color: #4998da;
+}

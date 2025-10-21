@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // ログイン確認用のユーザーを1件だけ作成
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+        ]);
+        $this->call(StatusTableSeeder::class);
     }
 }
