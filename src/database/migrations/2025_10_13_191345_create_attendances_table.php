@@ -20,7 +20,6 @@ class CreateAttendancesTable extends Migration
             $table->timestamp('leaving_at')->nullable();
             $table->string('remarks')->nullable();
             $table->foreignId('status_id')->constrained('statuses')->cascadeOnDelete();
-            $table->integer('request_flag');
             $table->timestamps();
         });
     }

@@ -17,11 +17,11 @@ class Attendance extends Model
         'user_id',
         'attendance_at',
         'leaving_at',
-        'request_flag',
         'status_id',
+        'remarks',
     ];
 
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
 

@@ -1,0 +1,32 @@
+.main {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.message {
+    font-weight: bold;
+}
+
+.authentication {
+    margin: 5% auto 0 auto;
+    width: 150px;
+    padding: 1% 0 1% 0;
+    background-color: #d9d9d9;
+    border: solid 1px #000000;
+    border-radius: 10px;
+}
+
+.authentication__link {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.resend {
+    margin-top: 3%;
+}
+
+.resend__button {
+    border: none;
+    color: #0173cc;
+}

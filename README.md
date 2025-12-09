@@ -20,7 +20,7 @@
 1. docker-compose exec php bash
 2. composer install
 3. .env.exampleから.envを作成、環境変数を変更
-4. .envファイルのMAIL_FROM_ADDRESSをexample@test.comに変更
+4. .envファイルのMAIL_FROM_ADDRESSをtest@example.comに変更
 5. php artisan key:generate
 6. composer require laravel/fortify
 7. php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
@@ -58,8 +58,12 @@
 
 ![ER図](src/er-diagram.png)
 
-## ログイン情報
+## 一般ユーザーログイン情報
 - メールアドレス:test@example.com
+- パスワード:password
+
+## 管理者ユーザーログイン情報
+- メールアドレス:admin@example.com
 - パスワード:password
 
 ## URL

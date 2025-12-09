@@ -16,10 +16,8 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('attendance_id')->constrained('attendances')->cascadeOnDelete();
-            $table->timestamp('attendance_at');
-            $table->timestamp('leaving_at');
-            $table->string('note');
             $table->integer('approval_flag');
+            $table->timestamp('requested_at');
             $table->timestamps();
         });
     }

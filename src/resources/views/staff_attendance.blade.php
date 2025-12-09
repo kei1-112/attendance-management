@@ -6,13 +6,13 @@
 
 @section('content')
 <div class="main">
-    <h1 class="main__title">勤怠一覧</h1>
+    <h1 class="main__title">{{ $user->name }}さんの勤怠一覧</h1>
     <div class="main__navigation">
-        <a href="{{url('/attendance/list?month=' . $month->copy()->subMonth()->format('Y-m'))}}" class="navigation__month">←前月</a>
+        <a href="{{url('/admin/attendance/staff/' . $user->id . '?month=' . $month->copy()->subMonth()->format('Y-m'))}}" class="navigation__month">←前月</a>
         <div class="navigation__selected--month">
             {{$month->format('Y/m')}}
         </div>
-        <a href="{{url('/attendance/list?month=' . $month->copy()->addMonth()->format('Y-m'))}}" class="navigation__month">翌月→</a>
+        <a href="{{url('/admin/attendance/staff/' . $user->id . '?month=' . $month->copy()->addMonth()->format('Y-m'))}}" class="navigation__month">翌月→</a>
     </div>
 
     <table class="list__table">
@@ -52,15 +52,22 @@
             </td>
             @if($attendance['id'] != null)
             <td class="list__data--detail">
-                <a href="{{url('attendance/detail/' . $attendance['id'] )}}" class="list__link--detail">詳細</a>
+                <a href="{{url('admin/attendance/' . $attendance['id'] )}}" class="list__link--detail">詳細</a>
             </td>
             @else
             <td class="list__data--detail">
-                <a href="{{url('attendance/detail/' . \Carbon\Carbon::parse($attendance['date'])->isoFormat('Y-M-D'))}}" class="list__link--detail">詳細</a>
+                <a href="{{url('admin/attendance/' . \Carbon\Carbon::parse($attendance['date'])->isoFormat('Y-M-D') . '?user_id=' . $user['id'] )}}" class="list__link--detail">詳細</a>
             </td>
             @endif
         </tr>
         @endforeach
     </table>
+    <form action="/attendance/export" method="get">
+        <input type="hidden" name="id" value="{{ $user->id }}">
+        <input type="hidden" name="month" value="{{ $month->format('Y-m') }}">
+        <div class="detail__button">
+            <button class="button__submit" type="submit">CSV出力</button>
+        </div>
+    </form>
 </div>
 @endsection
